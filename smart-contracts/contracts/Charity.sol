@@ -115,4 +115,14 @@ contract CharityPlatform {
 
         emit FundsTransferred(msg.sender, amount);
     }
+    function getAllRecipientDetails() external view returns (Recipient[] memory) {
+    Recipient[] memory allRecipients = new Recipient[](recipientList.length);
+    
+    for (uint256 i = 0; i < recipientList.length; i++) {
+        allRecipients[i] = recipients[recipientList[i]];
+    }
+
+    return allRecipients;
+}
+
 }
